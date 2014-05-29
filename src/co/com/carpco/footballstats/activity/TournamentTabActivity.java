@@ -62,7 +62,7 @@ public class TournamentTabActivity extends TabActivity {
                 ressources.getDrawable(R.drawable.ic_launcher)).setContent(intentGroups);
 
     // Teams tab
-    Intent intentTeams = new Intent().setClass(this, TeamActivity.class);
+    Intent intentTeams = new Intent().setClass(this, TeamListActivity.class);
     intentInfo.putExtras(b);
     TabSpec tabSpecTeams =
         tabHost
@@ -96,14 +96,15 @@ public class TournamentTabActivity extends TabActivity {
   }
 
   private void loadPage() {
-    TournamentTabActivity.this.runOnUiThread(new Runnable() {
-      @Override
-      public void run() {
-        DownloadXmlTask task = new DownloadXmlTask();
-        task.execute("http://192.168.1.3:1512/footballstats/team/all");
-      }
-    });
-
+    if (teamList == null || teamList.size() == 0) {
+      TournamentTabActivity.this.runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+          DownloadXmlTask task = new DownloadXmlTask();
+          task.execute("http://192.168.1.3:1512/footballstats/team/all");
+        }
+      });
+    }
   }
 
   // Implementation of AsyncTask used to download XML feed from stackoverflow.com.
@@ -142,8 +143,6 @@ public class TournamentTabActivity extends TabActivity {
     try {
       stream = downloadUrl(urlString);
       entries = xmlParser.parse(stream);
-      // Makes sure that the InputStream is closed after the app is
-      // finished using it.
     } finally {
       if (stream != null) {
         stream.close();

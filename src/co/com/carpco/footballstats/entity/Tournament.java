@@ -7,6 +7,9 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import co.com.carpco.footballstats.util.SerialBitmap;
+import android.graphics.Bitmap;
+
 /**
  * Tournament entity
  * @author Carlos Rodriguez
@@ -14,8 +17,8 @@ import java.util.Set;
  * @since 5/17/2014
  */
 public class Tournament implements Serializable {
-  
-  private static final long serialVersionUID = -2980913382084736480L;
+
+  private static final long serialVersionUID = 1765550888147856108L;
 
   private int idTournament;
   
@@ -23,25 +26,29 @@ public class Tournament implements Serializable {
   
   private int foundationYear;
   
+  private SerialBitmap flag;
+  
   private Country country;
   
   private TournamentType tournamentType;
   
   private Set<Team> teamSet;
   
-  public Tournament(String name, int foundationYear, Country country, TournamentType tournamentType) {
+  public Tournament(String name, int foundationYear, Bitmap flag, Country country, TournamentType tournamentType) {
     super();
     this.name = name;
     this.foundationYear = foundationYear;
+    this.flag = new SerialBitmap(flag);
     this.country = country;
     this.tournamentType = tournamentType;
   }
   
-  public Tournament(int idTournament, String name, int foundationYear, Country country, TournamentType tournamentType) {
+  public Tournament(int idTournament, String name, int foundationYear, Bitmap flag, Country country, TournamentType tournamentType) {
     super();
     this.idTournament = idTournament;
     this.name = name;
     this.foundationYear = foundationYear;
+    this.flag = new SerialBitmap(flag);
     this.country = country;
     this.tournamentType = tournamentType;
   }
@@ -86,6 +93,20 @@ public class Tournament implements Serializable {
    */
   public void setFoundationYear(int foundationYear) {
     this.foundationYear = foundationYear;
+  }
+
+  /**
+   * @return the flag
+   */
+  public SerialBitmap getFlag() {
+    return flag;
+  }
+
+  /**
+   * @param flag the flag to set
+   */
+  public void setFlag(Bitmap flag) {
+    this.flag = new SerialBitmap(flag);
   }
 
   /**
@@ -148,6 +169,7 @@ public class Tournament implements Serializable {
     final int prime = 31;
     int result = 1;
     result = prime * result + ((country == null) ? 0 : country.hashCode());
+    result = prime * result + ((flag == null) ? 0 : flag.hashCode());
     result = prime * result + foundationYear;
     result = prime * result + idTournament;
     result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -172,6 +194,11 @@ public class Tournament implements Serializable {
       if (other.country != null)
         return false;
     } else if (!country.equals(other.country))
+      return false;
+    if (flag == null) {
+      if (other.flag != null)
+        return false;
+    } else if (!flag.equals(other.flag))
       return false;
     if (foundationYear != other.foundationYear)
       return false;
@@ -201,8 +228,8 @@ public class Tournament implements Serializable {
   @Override
   public String toString() {
     return "Tournament [idTournament=" + idTournament + ", name=" + name + ", foundationYear="
-        + foundationYear + ", country=" + country + ", tournamentType=" + tournamentType
-        + ", teamSet=" + teamSet + "]";
+        + foundationYear + ", flag=" + flag + ", country=" + country + ", tournamentType="
+        + tournamentType + ", teamSet=" + teamSet + "]";
   }
 
 }

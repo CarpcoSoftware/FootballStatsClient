@@ -3,6 +3,7 @@ package co.com.carpco.footballstats.activity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 import co.com.carpco.footballstats.R;
 import co.com.carpco.footballstats.R.string;
@@ -21,8 +22,10 @@ public class TournamentActivity extends ActionBarActivity {
     if (tournament != null) {
       TextView txtTournament = (TextView) findViewById(R.id.tvTournament);
       TextView txtFoundation = (TextView) findViewById(R.id.tvFoundation);
+      ImageView imgTournament = (ImageView) findViewById(R.id.imgTournamet);
       txtTournament.setText(tournament.getName());
       txtFoundation.setText(getResources().getString(string.foundation_year).concat(String.valueOf(tournament.getFoundationYear())));
+      imgTournament.setImageBitmap(tournament.getFlag().getBitmap());
     }
   }
 

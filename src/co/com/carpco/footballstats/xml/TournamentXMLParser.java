@@ -15,6 +15,7 @@ import android.util.Xml;
 import co.com.carpco.footballstats.entity.Country;
 import co.com.carpco.footballstats.entity.Tournament;
 import co.com.carpco.footballstats.entity.TournamentType;
+import co.com.carpco.footballstats.util.ImageUtil;
 
 /**
  * @author Carlos
@@ -31,6 +32,8 @@ public class TournamentXMLParser extends XMLParser<Tournament> {
   private static final String ATTRIBUTE_NAME =  "name";
   
   private static final String ATTRIBUTE_FOUNDATION =  "foundation_year";
+  
+  private static final String ATTRIBUTE_FLAG = "flag";
 
   @Override
   public List<Tournament> parse(InputStream in) throws XmlPullParserException, IOException {
@@ -73,6 +76,7 @@ public class TournamentXMLParser extends XMLParser<Tournament> {
     int idTournament = 0;
     String name = null;
     int foundation = 0;
+    String flag = null;
     Country country = new Country("XXX", null, "XXX");
     TournamentType type = new TournamentType("Cup");
     
@@ -87,11 +91,13 @@ public class TournamentXMLParser extends XMLParser<Tournament> {
         name = (String) readValue(parser, ATTRIBUTE_NAME, STRING_VALUE);
       } else if (attName.equals(ATTRIBUTE_FOUNDATION)) {
         foundation = (int) readValue(parser, ATTRIBUTE_FOUNDATION, INTEGER_VALUE);
+      } else if (attName.equals(ATTRIBUTE_FLAG)) {
+        flag = (String) readValue(parser, ATTRIBUTE_FLAG, STRING_VALUE);
       } else {
         skip(parser);
       }
     }
-    return new Tournament(idTournament, name, foundation, country, type);
+    return new Tournament(idTournament, name, foundation, ImageUtil.StringToBitMap(flag), country, type);
   }
 
 }
