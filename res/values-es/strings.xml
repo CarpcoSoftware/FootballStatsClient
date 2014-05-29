@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FS</string>
+    <string name="action_settings">Configuraciones</string>
+    <string name="connection_error">Error en la URL</string>
+    <string name="xml_error">Error en el XML</string>
+    <string name="foundation_year">Fundado en:</string>
+
+</resources>
