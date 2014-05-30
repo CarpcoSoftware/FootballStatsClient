@@ -18,8 +18,7 @@ import co.com.carpco.footballstats.entity.Team;
 import co.com.carpco.footballstats.util.ImageUtil;
 
 /**
- * @author Carlos
- *
+ * @author Carlos Rodriguez
  */
 public class TeamXMLParser extends XMLParser<Team> {
   
@@ -86,19 +85,27 @@ public class TeamXMLParser extends XMLParser<Team> {
       if (parser.getEventType() != XmlPullParser.START_TAG) {
         continue;
       }
+      
       String attName = parser.getName();
-      if (attName.equals(ATTRIBUTE_ID)) {
-        idTeam = (int) readValue(parser, ATTRIBUTE_ID, INTEGER_VALUE);
-      } else if (attName.equals(ATTRIBUTE_NAME)) {
-        name = (String) readValue(parser, ATTRIBUTE_NAME, STRING_VALUE);
-      }  else if (attName.equals(ATTRIBUTE_NICKNAME)) {
-        nickname = (String) readValue(parser, ATTRIBUTE_NICKNAME, STRING_VALUE);
-      } else if (attName.equals(ATTRIBUTE_FLAG)) {
-        flag = (String) readValue(parser, ATTRIBUTE_FLAG, STRING_VALUE);
-      } else if (attName.equals(ATTRIBUTE_FOUNDATION)) {
-        foundation = (Long) readValue(parser, ATTRIBUTE_FOUNDATION, LONG_VALUE);
-      } else {
-        skip(parser);
+      switch (attName) {
+        case ATTRIBUTE_ID:
+          idTeam = (int) readValue(parser, ATTRIBUTE_ID, INTEGER_VALUE);
+          break;
+        case ATTRIBUTE_NAME:
+          name = (String) readValue(parser, ATTRIBUTE_NAME, STRING_VALUE);
+          break;
+        case ATTRIBUTE_NICKNAME:
+          nickname = (String) readValue(parser, ATTRIBUTE_NICKNAME, STRING_VALUE);
+          break;
+        case ATTRIBUTE_FLAG:
+          flag = (String) readValue(parser, ATTRIBUTE_FLAG, STRING_VALUE);
+          break;
+        case ATTRIBUTE_FOUNDATION:
+          foundation = (Long) readValue(parser, ATTRIBUTE_FOUNDATION, LONG_VALUE);
+          break;
+        default:
+          skip(parser);
+          break;
       }
     }
     return new Team(idTeam, name, nickname, ImageUtil.StringToBitMap(flag), country, new DateTime(foundation));

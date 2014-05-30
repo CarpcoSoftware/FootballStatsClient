@@ -4,9 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView android:id="@+id/icon"
+    <ImageView android:id="@+id/imgIcon1"
         android:layout_width="80dip"
-        android:layout_height="80dip" />
+        android:layout_height="80dip"
+        android:contentDescription="@string/flag" />
+    
+    <ImageView android:id="@+id/imgIcon2"
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:contentDescription="@string/flag" />
 
     <TextView android:id="@+id/text"
         android:layout_gravity="center_vertical"

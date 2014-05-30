@@ -17,7 +17,7 @@ public class SerialBitmap implements Serializable {
 
   private static final long serialVersionUID = 2015231518864762956L;
   
-  public Bitmap bitmap;
+  private Bitmap bitmap;
 
   public SerialBitmap(Bitmap bitmap) {
       this.bitmap = bitmap;
@@ -33,10 +33,12 @@ public class SerialBitmap implements Serializable {
    * @throws IOException
    */
   private void writeObject(java.io.ObjectOutputStream out) throws IOException {
-      ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-      bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteStream);
-      byte bitmapBytes[] = byteStream.toByteArray();
-      out.write(bitmapBytes, 0, bitmapBytes.length);
+    if (bitmap != null) {
+        ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteStream);
+        byte bitmapBytes[] = byteStream.toByteArray();
+        out.write(bitmapBytes, 0, bitmapBytes.length);
+    }
   }
 
   /**

@@ -16,16 +16,17 @@ public class TournamentActivity extends ActionBarActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_tournament);
     
-    Bundle b = getIntent().getExtras();
-    Tournament tournament = (Tournament) b.getSerializable("tournament");
+    Tournament tournament = TournamentTabActivity.tournament;
     
     if (tournament != null) {
-      TextView txtTournament = (TextView) findViewById(R.id.tvTournament);
-      TextView txtFoundation = (TextView) findViewById(R.id.tvFoundation);
-      ImageView imgTournament = (ImageView) findViewById(R.id.imgTournamet);
+      TextView txtTournament = (TextView) findViewById(R.id.txtTournamentName);
+      TextView txtFoundation = (TextView) findViewById(R.id.txtTournamentFoundation);
+      ImageView imgTournament = (ImageView) findViewById(R.id.imgTournametFlag);
+      ImageView imgCountry = (ImageView) findViewById(R.id.imgCountryFlag);
       txtTournament.setText(tournament.getName());
       txtFoundation.setText(getResources().getString(string.foundation_year).concat(String.valueOf(tournament.getFoundationYear())));
       imgTournament.setImageBitmap(tournament.getFlag().getBitmap());
+      imgCountry.setImageBitmap(tournament.getCountry().getFlag().getBitmap());
     }
   }
 

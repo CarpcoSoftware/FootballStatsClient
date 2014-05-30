@@ -6,6 +6,7 @@ package co.com.carpco.footballstats.entity;
 import java.io.Serializable;
 
 import android.graphics.Bitmap;
+import co.com.carpco.footballstats.util.SerialBitmap;
 
 /**
  * Country entity
@@ -22,14 +23,14 @@ public class Country implements Serializable {
 
   private String name;
 
-  private Bitmap flag;
+  private SerialBitmap flag;
 
   private String language;
   
   public Country(String name, Bitmap flag, String language) {
     super();
     this.name = name;
-    this.flag = flag;
+    this.flag = new SerialBitmap(flag);
     this.language = language;
   }
 
@@ -37,7 +38,7 @@ public class Country implements Serializable {
     super();
     this.idCountry = idCountry;
     this.name = name;
-    this.flag = flag;
+    this.flag = new SerialBitmap(flag);
     this.language = language;
   }
 
@@ -72,7 +73,7 @@ public class Country implements Serializable {
   /**
    * @return the flag
    */
-  public Bitmap getFlag() {
+  public SerialBitmap getFlag() {
     return flag;
   }
 
@@ -80,7 +81,7 @@ public class Country implements Serializable {
    * @param flag the flag to set
    */
   public void setFlag(Bitmap flag) {
-    this.flag = flag;
+    this.flag = new SerialBitmap(flag);
   }
 
   /**

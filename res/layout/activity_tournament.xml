@@ -5,33 +5,53 @@
     android:layout_height="match_parent"
     tools:context="co.com.carpco.footballstats.activity.MainActivity"
     tools:ignore="MergeRootFrame" >
-
-    <TextView
-        android:id="@+id/tvFoundation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvTournament"
-        android:layout_below="@+id/tvTournament"
-        android:layout_marginTop="14dp"
-        android:text="@string/foundation_year" />
-
+    
     <ImageView
-        android:id="@+id/imgTournamet"
-        android:layout_width="160dip"
+        android:id="@+id/imgTournamentBackground"
+        android:layout_width="wrap_content"
         android:layout_height="160dip"
-        android:layout_alignLeft="@+id/tvTournament"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="21dp"
-        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
-
+        android:contentDescription="@string/background"
+        android:scaleType="fitXY"
+        android:src="@drawable/background" />
+    
+    <ImageView
+        android:id="@+id/imgTournametFlag"
+        android:layout_width="120dip"
+        android:layout_height="120dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/flag"
+        android:scaleType="fitXY" />
+    
+    <ImageView
+        android:id="@+id/imgCountryFlag"
+        android:layout_width="120dip"
+        android:layout_height="120dip"
+        android:layout_toRightOf="@+id/imgTournametFlag"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/flag"
+        android:scaleType="fitXY" />
+    
     <TextView
-        android:id="@+id/tvTournament"
+        android:id="@+id/txtTournamentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/imgTournamet"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="20dp"
+        android:layout_alignLeft="@+id/imgTournametFlag"
+        android:layout_below="@+id/imgTournametFlag"
+        android:layout_marginTop="52dp"
         android:text="@string/tournament" />
+
+    <TextView
+        android:id="@+id/txtTournamentFoundation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtTournamentName"
+        android:layout_below="@+id/txtTournamentName"
+        android:layout_marginTop="14dp"
+        android:text="@string/foundation_year" />    
 
 </RelativeLayout>

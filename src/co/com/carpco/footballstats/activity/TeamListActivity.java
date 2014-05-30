@@ -1,5 +1,8 @@
 package co.com.carpco.footballstats.activity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.ListActivity;
 import android.content.Context;
 import android.os.Bundle;
@@ -10,8 +13,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import co.com.carpco.footballstats.R;
+import co.com.carpco.footballstats.entity.Team;
 
 public class TeamListActivity extends ListActivity {
+  
+  private static List<Team> teamList;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +30,7 @@ public class TeamListActivity extends ListActivity {
 
     public EfficientAdapter(Context context) {
       mInflater = LayoutInflater.from(context);
+      teamList = new ArrayList<>(TournamentTabActivity.tournament.getTeamSet());
     }
 
     /**
@@ -33,8 +40,8 @@ public class TeamListActivity extends ListActivity {
      */
     public int getCount() {
       int count = 0;
-      if (TournamentTabActivity.teamList != null) {
-        count = TournamentTabActivity.teamList.size();
+      if (teamList != null && teamList.size() > 0) {
+        count = teamList.size();
       }
       return count;
     }
@@ -72,22 +79,22 @@ public class TeamListActivity extends ListActivity {
 
         holder = new ViewHolder();
         holder.text = (TextView) convertView.findViewById(R.id.text);
-        holder.icon = (ImageView) convertView.findViewById(R.id.icon);
+        holder.icon1 = (ImageView) convertView.findViewById(R.id.imgIcon1);
 
         convertView.setTag(holder);
       } else {
         holder = (ViewHolder) convertView.getTag();
       }
 
-      holder.text.setText(TournamentTabActivity.teamList.get(position).getName());
-      holder.icon.setImageBitmap(TournamentTabActivity.teamList.get(position).getFlag());
+      holder.text.setText(teamList.get(position).getName());
+      holder.icon1.setImageBitmap(teamList.get(position).getFlag().getBitmap());
 
       return convertView;
     }
 
     static class ViewHolder {
       TextView text;
-      ImageView icon;
+      ImageView icon1;
     }
   }
 }

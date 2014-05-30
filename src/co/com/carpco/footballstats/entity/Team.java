@@ -8,6 +8,7 @@ import java.io.Serializable;
 import org.joda.time.DateTime;
 
 import android.graphics.Bitmap;
+import co.com.carpco.footballstats.util.SerialBitmap;
 
 /**
  * Team entity
@@ -25,7 +26,7 @@ public class Team implements Serializable {
   
   private String nickname;
   
-  private Bitmap flag;
+  private SerialBitmap flag;
   
   private Country country;
   
@@ -35,7 +36,7 @@ public class Team implements Serializable {
     super();
     this.name = name;
     this.nickname = nickname;
-    this.flag = flag;
+    this.flag = new SerialBitmap(flag);
     this.country = country;
     this.foundation = foundation;
   }
@@ -45,7 +46,7 @@ public class Team implements Serializable {
     this.idTeam = idTeam;
     this.name = name;
     this.nickname = nickname;
-    this.flag = flag;
+    this.flag = new SerialBitmap(flag);
     this.country = country;
     this.foundation = foundation;
   }
@@ -95,7 +96,7 @@ public class Team implements Serializable {
   /**
    * @return the flag
    */
-  public Bitmap getFlag() {
+  public SerialBitmap getFlag() {
     return flag;
   }
 
@@ -103,7 +104,7 @@ public class Team implements Serializable {
    * @param flag the flag to set
    */
   public void setFlag(Bitmap flag) {
-    this.flag = flag;
+    this.flag = new SerialBitmap(flag);
   }
 
   /**
