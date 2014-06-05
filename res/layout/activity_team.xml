@@ -3,15 +3,51 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    
+    <RelativeLayout 
+        android:orientation="horizontal"
+    	android:layout_width="wrap_content"
+    	android:layout_height="160dip">
+    	
+	    <ImageView
+	        android:id="@+id/imgTournamentBackground"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignParentTop="true"
+	        android:contentDescription="@string/background"
+	        android:scaleType="fitXY"
+	        android:src="@drawable/background" />
+        
+	    <ImageView
+	        android:id="@+id/imgTournametFlag"
+	        android:layout_width="120dip"
+	        android:layout_height="120dip"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_marginTop="16dp"
+	        android:layout_marginLeft="16dp"
+	        android:contentDescription="@string/flag"
+	        android:scaleType="fitXY" />
+
+	    <ImageView
+	        android:id="@+id/imgCountryFlag"
+	        android:layout_width="120dip"
+	        android:layout_height="120dip"
+	        android:layout_alignTop="@+id/imgTournametFlag"
+	        android:layout_toRightOf="@+id/imgTournametFlag"
+	        android:contentDescription="@string/flag"
+	        android:scaleType="fitXY" />
+        
+    </RelativeLayout>
 
     <ImageView android:id="@+id/imgIcon1"
-        android:layout_width="80dip"
-        android:layout_height="80dip"
+        style="@style/AppImageInList"
         android:contentDescription="@string/flag" />
     
     <ImageView android:id="@+id/imgIcon2"
-        android:layout_width="80dip"
-        android:layout_height="80dip"
+        style="@style/AppImageInList"
         android:contentDescription="@string/flag" />
 
     <TextView android:id="@+id/text"

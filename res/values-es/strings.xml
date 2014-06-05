@@ -3,8 +3,15 @@
 
     <string name="app_name">FS</string>
     <string name="action_settings">Configuraciones</string>
+    <string name="background">Fondo</string>
     <string name="connection_error">Error en la URL</string>
-    <string name="xml_error">Error en el XML</string>
+    <string name="flag">Bandera</string>
     <string name="foundation_year">Fundado en:</string>
+    <string name="groups">Grupos</string>
+    <string name="info">Información</string>
+    <string name="schedule">Calendario</string>
+    <string name="teams">Equipos</string>
+    <string name="tournament">Torneo</string>
+    <string name="xml_error">Error en el XML</string>
 
 </resources>

@@ -1,57 +1,53 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="co.com.carpco.footballstats.activity.MainActivity"
-    tools:ignore="MergeRootFrame" >
+    android:layout_height="match_parent" >
     
-    <ImageView
-        android:id="@+id/imgTournamentBackground"
-        android:layout_width="wrap_content"
-        android:layout_height="160dip"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:contentDescription="@string/background"
-        android:scaleType="fitXY"
-        android:src="@drawable/background" />
-    
-    <ImageView
-        android:id="@+id/imgTournametFlag"
-        android:layout_width="120dip"
-        android:layout_height="120dip"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/flag"
-        android:scaleType="fitXY" />
-    
-    <ImageView
-        android:id="@+id/imgCountryFlag"
-        android:layout_width="120dip"
-        android:layout_height="120dip"
-        android:layout_toRightOf="@+id/imgTournametFlag"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/flag"
-        android:scaleType="fitXY" />
+    <RelativeLayout 
+        android:orientation="horizontal"
+    	android:layout_width="wrap_content"
+    	android:layout_height="160dip">
+    	
+	    <ImageView
+	        android:id="@+id/imgTournamentBackground"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignParentTop="true"
+	        android:contentDescription="@string/background"
+	        android:scaleType="fitXY"
+	        android:src="@drawable/background" />
+        
+	    <ImageView
+	        android:id="@+id/imgTournametFlag"
+	        android:layout_width="120dip"
+	        android:layout_height="120dip"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_marginTop="16dp"
+	        android:layout_marginLeft="16dp"
+	        android:contentDescription="@string/flag"
+	        android:scaleType="fitXY" />
+
+	    <ImageView
+	        android:id="@+id/imgCountryFlag"
+	        android:layout_width="120dip"
+	        android:layout_height="120dip"
+	        android:layout_alignTop="@+id/imgTournametFlag"
+	        android:layout_toRightOf="@+id/imgTournametFlag"
+	        android:contentDescription="@string/flag"
+	        android:scaleType="fitXY" />
+        
+    </RelativeLayout>
     
     <TextView
         android:id="@+id/txtTournamentName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imgTournametFlag"
-        android:layout_below="@+id/imgTournametFlag"
-        android:layout_marginTop="52dp"
+        style="@style/AppTextBold"
         android:text="@string/tournament" />
 
     <TextView
         android:id="@+id/txtTournamentFoundation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txtTournamentName"
-        android:layout_below="@+id/txtTournamentName"
-        android:layout_marginTop="14dp"
-        android:text="@string/foundation_year" />    
+        style="@style/AppText"
+        android:text="@string/foundation_year" />
 
-</RelativeLayout>
+</LinearLayout>
