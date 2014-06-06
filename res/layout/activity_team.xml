@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     
@@ -10,7 +10,7 @@
     	android:layout_height="160dip">
     	
 	    <ImageView
-	        android:id="@+id/imgTournamentBackground"
+	        android:id="@+id/imgTeamTournamentBackground"
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
 	        android:layout_alignParentLeft="true"
@@ -21,7 +21,7 @@
 	        android:src="@drawable/background" />
         
 	    <ImageView
-	        android:id="@+id/imgTournametFlag"
+	        android:id="@+id/imgTeamTournametFlag"
 	        android:layout_width="120dip"
 	        android:layout_height="120dip"
 	        android:layout_alignParentLeft="true"
@@ -32,28 +32,19 @@
 	        android:scaleType="fitXY" />
 
 	    <ImageView
-	        android:id="@+id/imgCountryFlag"
+	        android:id="@+id/imgTeamCountryFlag"
 	        android:layout_width="120dip"
 	        android:layout_height="120dip"
-	        android:layout_alignTop="@+id/imgTournametFlag"
-	        android:layout_toRightOf="@+id/imgTournametFlag"
+	        android:layout_alignTop="@+id/imgTeamTournametFlag"
+	        android:layout_toRightOf="@+id/imgTeamTournametFlag"
 	        android:contentDescription="@string/flag"
 	        android:scaleType="fitXY" />
         
     </RelativeLayout>
-
-    <ImageView android:id="@+id/imgIcon1"
-        style="@style/AppImageInList"
-        android:contentDescription="@string/flag" />
     
-    <ImageView android:id="@+id/imgIcon2"
-        style="@style/AppImageInList"
-        android:contentDescription="@string/flag" />
-
-    <TextView android:id="@+id/text"
-        android:layout_gravity="center_vertical"
-        android:layout_width="0dip"
-        android:layout_weight="1.0"
-        android:layout_height="wrap_content" />
+    <ListView android:id="@+id/lstTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </ListView>
 
 </LinearLayout>

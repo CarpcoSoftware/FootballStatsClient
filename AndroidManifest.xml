@@ -33,7 +33,7 @@
             android:label="@string/tournament" >
         </activity>
         <activity
-            android:name="co.com.carpco.footballstats.activity.TeamListActivity"
+            android:name="co.com.carpco.footballstats.activity.TeamActivity"
             android:label="@string/teams" >
         </activity>
         <activity

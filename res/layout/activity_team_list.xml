@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent" >
+    <TableRow>
+        <ImageView
+            android:id="@+id/imgTeamListFlag1"
+            style="@style/AppImageInList"
+            android:contentDescription="@string/flag" />
+    
+    	<ImageView android:id="@+id/imgTeamListFlag2"
+        	style="@style/AppImageInList"
+        	android:contentDescription="@string/flag" />
+
+    	<TextView
+    	    android:id="@+id/txtTeamListName"
+    	    style="@style/AppText"
+    	    android:layout_gravity="center_vertical"
+    	    android:gravity="center_vertical"
+    	    android:text="@string/teams" />
+
+	</TableRow>
+</TableLayout>

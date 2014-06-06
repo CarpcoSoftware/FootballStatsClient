@@ -48,7 +48,7 @@ public class TournamentTabActivity extends TabActivity {
                 ressources.getDrawable(R.drawable.ic_launcher)).setContent(intentGroups);
 
     // Teams tab
-    Intent intentTeams = new Intent().setClass(this, TeamListActivity.class);
+    Intent intentTeams = new Intent().setClass(this, TeamActivity.class);
     TabSpec tabSpecTeams =
         tabHost
             .newTabSpec(getResources().getString(R.string.teams))
