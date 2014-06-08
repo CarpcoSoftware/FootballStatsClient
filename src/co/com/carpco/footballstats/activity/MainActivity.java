@@ -22,8 +22,6 @@ import co.com.carpco.footballstats.xml.XMLParser;
 
 public class MainActivity extends ActionBarActivity implements OnClickListener {
 
-
-
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

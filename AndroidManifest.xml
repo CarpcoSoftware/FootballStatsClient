@@ -44,6 +44,10 @@
             android:name="co.com.carpco.footballstats.activity.ScheduleActivity"
             android:label="@string/schedule" >
         </activity>
+        <activity
+            android:name="co.com.carpco.footballstats.activity.TeamDetailActivity"
+            android:label="@string/teams" >
+        </activity>
     </application>
 
 </manifest>

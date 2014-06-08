@@ -8,7 +8,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.joda.time.DateTime;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -35,6 +34,19 @@ public class TeamXMLParser extends XMLParser<Team> {
   private static final String ATTRIBUTE_FLAG = "flag";
   
   private static final String ATTRIBUTE_FOUNDATION =  "foundation";
+  
+  private static final String ATTRIBUTE_RANKING = "ranking";
+  
+  private static final String ATTRIBUTE_COACH = "coach";
+  
+  private static final String ATTRIBUTE_COUNTRY = "Country";
+  
+  private final XMLParser<Country> countryParser;
+  
+  public TeamXMLParser() {
+    super();
+    countryParser = new CountryXMLParser();
+  }
 
   @Override
   public List<Team> parse(InputStream in) throws XmlPullParserException, IOException {
@@ -78,8 +90,10 @@ public class TeamXMLParser extends XMLParser<Team> {
     String name = null;
     String nickname = null;
     String flag = null;
-    Long foundation = 0L;
-    Country country = new Country("XXX", null, "XXX");
+    int foundation = 0;
+    int ranking = 0;
+    String coach = null;
+    Country country = null;
     
     while (parser.next() != XmlPullParser.END_TAG) {
       if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -101,14 +115,23 @@ public class TeamXMLParser extends XMLParser<Team> {
           flag = (String) readValue(parser, ATTRIBUTE_FLAG, STRING_VALUE);
           break;
         case ATTRIBUTE_FOUNDATION:
-          foundation = (Long) readValue(parser, ATTRIBUTE_FOUNDATION, LONG_VALUE);
+          foundation = (Integer) readValue(parser, ATTRIBUTE_FOUNDATION, INTEGER_VALUE);
+          break;
+        case ATTRIBUTE_RANKING:
+          ranking = (Integer) readValue(parser, ATTRIBUTE_RANKING, INTEGER_VALUE);
+          break;
+        case ATTRIBUTE_COACH:
+          coach = (String) readValue(parser, ATTRIBUTE_COACH, STRING_VALUE);
+          break;
+        case ATTRIBUTE_COUNTRY:
+          country = countryParser.readEntry(parser);
           break;
         default:
           skip(parser);
           break;
       }
     }
-    return new Team(idTeam, name, nickname, ImageUtil.StringToBitMap(flag), country, new DateTime(foundation));
+    return new Team(idTeam, name, nickname, ImageUtil.StringToBitMap(flag), country, foundation, ranking, coach);
   }
 
 }

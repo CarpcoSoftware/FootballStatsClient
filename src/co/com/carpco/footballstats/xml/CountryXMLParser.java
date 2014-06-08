@@ -31,6 +31,8 @@ public class CountryXMLParser extends XMLParser<Country> {
   private static final String ATTRIBUTE_LANGUAGE = "language";
   
   private static final String ATTRIBUTE_FLAG = "flag";
+  
+  private static final String ATTRIBUTE_CAPITAL = "capital";
 
   @Override
   public List<Country> parse(InputStream in) throws XmlPullParserException, IOException {
@@ -74,6 +76,7 @@ public class CountryXMLParser extends XMLParser<Country> {
     String name = null;
     String language = null;
     String flag = null;
+    String capital = null;
     
     while (parser.next() != XmlPullParser.END_TAG) {
       if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -91,6 +94,9 @@ public class CountryXMLParser extends XMLParser<Country> {
         case ATTRIBUTE_LANGUAGE:
           language = (String) readValue(parser, ATTRIBUTE_LANGUAGE, STRING_VALUE);
           break;
+        case ATTRIBUTE_CAPITAL:
+          capital = (String) readValue(parser, ATTRIBUTE_CAPITAL, STRING_VALUE);
+          break;
         case ATTRIBUTE_FLAG:
           flag = (String) readValue(parser, ATTRIBUTE_FLAG, STRING_VALUE);
           break;
@@ -99,7 +105,7 @@ public class CountryXMLParser extends XMLParser<Country> {
           break;
       }
     }
-    return new Country(idTeam, name, ImageUtil.StringToBitMap(flag), language);
+    return new Country(idTeam, name, ImageUtil.StringToBitMap(flag), language, capital);
   }
 
 }

@@ -1,0 +1,176 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <RelativeLayout 
+        android:orientation="horizontal"
+    	android:layout_width="wrap_content"
+    	android:layout_height="160dip">
+    	
+        <ImageView
+	        android:id="@+id/imgTeamDetailBackground"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignParentTop="true"
+	        android:contentDescription="@string/background"
+	        android:scaleType="fitXY"
+	        android:src="@drawable/background" />
+        
+        <LinearLayout android:orientation="horizontal"
+    		android:layout_width="match_parent"
+    		android:layout_height="match_parent"
+    		android:layout_gravity="center_horizontal"
+    		android:gravity="center_horizontal">
+    		
+            <ImageButton
+                android:id="@+id/imgTeamDetailPrevious"
+                android:src="@drawable/previous"
+                android:layout_width="32dip" 
+                android:layout_height="32dip"
+                android:layout_marginTop="60dp"
+                android:contentDescription="@string/previous"
+                android:background="@null" />
+		    
+		    <ImageView
+		        android:id="@+id/imgTeamDetailFlag"
+		        android:layout_width="120dip"
+		        android:layout_height="120dip"
+		        android:layout_marginTop="16dp"
+		        android:contentDescription="@string/flag"
+		        android:scaleType="fitXY" />
+
+		    <ImageView
+		        android:id="@+id/imgTeamDetailCountryFlag"
+		        android:layout_width="120dip"
+		        android:layout_height="85dip"
+		        android:layout_marginTop="35dp"
+		        android:contentDescription="@string/flag"
+		        android:scaleType="fitXY" />
+		    
+		    <ImageButton
+                android:id="@+id/imgTeamDetailNext"
+                android:src="@drawable/next"
+                android:layout_width="32dip" 
+                android:layout_height="32dip"
+                android:layout_marginLeft="20dip"
+                android:layout_marginTop="60dp"
+                android:contentDescription="@string/next"
+                android:background="@null" />
+
+	    </LinearLayout>
+        
+    </RelativeLayout>
+    
+    <TableLayout android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent">
+        
+        <TableRow>
+
+            <TextView
+                android:id="@+id/txtTeamDetailName"
+                style="@style/AppTextBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/teams" />
+
+        </TableRow>
+        
+        <TableRow android:background="@drawable/cell_shape" >
+            <TextView
+		        style="@style/AppText"
+		        android:layout_weight="1"
+                android:gravity="right"
+				android:textAlignment="gravity"
+		        android:text="@string/capital" />
+            
+            <TextView
+		        android:id="@+id/txtTeamDetailCapital"
+		        style="@style/AppText"
+		        android:layout_weight="1"
+		        android:text="@string/capital" />
+        </TableRow>
+        
+        <TableRow>
+
+            <TextView
+                style="@style/AppText"
+                android:layout_weight="1"
+                android:gravity="right"
+				android:textAlignment="gravity"
+                android:text="@string/nickname" />
+
+            <TextView
+                android:id="@+id/txtTeamDetailNickname"
+                style="@style/AppText"
+                android:layout_weight="1"
+                android:text="@string/nickname" />
+        </TableRow>
+
+        <TableRow android:background="@drawable/cell_shape">
+            
+            <TextView
+		        style="@style/AppText"
+		        android:layout_weight="1"
+		        android:gravity="right"
+				android:textAlignment="gravity"
+		        android:text="@string/language" />
+            
+            <TextView
+		        android:id="@+id/txtTeamDetailLanguage"
+		        style="@style/AppText"
+		        android:layout_weight="1"
+		        android:text="@string/language" />
+            
+        </TableRow>
+        
+        <TableRow>
+            <TextView
+		        style="@style/AppText"
+		        android:layout_weight="1"
+		        android:gravity="right"
+				android:textAlignment="gravity"
+		        android:text="@string/fifa_registry" />
+            
+            <TextView
+		        android:id="@+id/txtTeamDetailFoundation"
+		        style="@style/AppText"
+		        android:layout_weight="1"
+		        android:text="@string/fifa_registry" />
+        </TableRow>
+        
+        <TableRow android:background="@drawable/cell_shape">
+            <TextView
+		        style="@style/AppText"
+		        android:layout_weight="1"
+		        android:gravity="right"
+				android:text="@string/fifa_ranking" />
+            
+            <TextView
+		        android:id="@+id/txtTeamDetailRanking"
+		        style="@style/AppText"
+		        android:layout_weight="1"
+		        android:text="@string/fifa_ranking" />
+        </TableRow>
+        
+        <TableRow>
+            <TextView
+		        android:layout_weight="1"
+		        android:gravity="right"
+		        style="@style/AppText"
+		        android:text="@string/coach" />
+            
+            <TextView
+		        android:id="@+id/txtTeamDetailCoach"
+		        android:layout_weight="1"
+		        style="@style/AppText"
+		        android:text="@string/coach" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

@@ -27,19 +27,23 @@ public class Country implements Serializable {
 
   private String language;
   
-  public Country(String name, Bitmap flag, String language) {
+  private String capital;
+  
+  public Country(String name, Bitmap flag, String language, String capital) {
     super();
     this.name = name;
     this.flag = new SerialBitmap(flag);
     this.language = language;
+    this.capital = capital;
   }
 
-  public Country(int idCountry, String name, Bitmap flag, String language) {
+  public Country(int idCountry, String name, Bitmap flag, String language, String capital) {
     super();
     this.idCountry = idCountry;
     this.name = name;
     this.flag = new SerialBitmap(flag);
     this.language = language;
+    this.capital = capital;
   }
 
   /**
@@ -98,6 +102,20 @@ public class Country implements Serializable {
     this.language = language;
   }
 
+  /**
+   * @return the capital
+   */
+  public String getCapital() {
+    return capital;
+  }
+
+  /**
+   * @param capital the capital to set
+   */
+  public void setCapital(String capital) {
+    this.capital = capital;
+  }
+
   /* (non-Javadoc)
    * @see java.lang.Object#hashCode()
    */
@@ -105,6 +123,7 @@ public class Country implements Serializable {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
+    result = prime * result + ((capital == null) ? 0 : capital.hashCode());
     result = prime * result + ((flag == null) ? 0 : flag.hashCode());
     result = prime * result + idCountry;
     result = prime * result + ((language == null) ? 0 : language.hashCode());
@@ -124,6 +143,11 @@ public class Country implements Serializable {
     if (!(obj instanceof Country))
       return false;
     Country other = (Country) obj;
+    if (capital == null) {
+      if (other.capital != null)
+        return false;
+    } else if (!capital.equals(other.capital))
+      return false;
     if (flag == null) {
       if (other.flag != null)
         return false;
@@ -150,7 +174,7 @@ public class Country implements Serializable {
   @Override
   public String toString() {
     return "Country [idCountry=" + idCountry + ", name=" + name + ", flag=" + flag + ", language="
-        + language + "]";
+        + language + ", capital=" + capital + "]";
   }
 
 }
